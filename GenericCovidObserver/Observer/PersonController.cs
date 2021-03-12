@@ -1,4 +1,5 @@
 ﻿using GenericCovidObserver.Model;
+using GenericCovidObserver.Provider;
 using System;
 
 namespace GenericCovidObserver.Observer
@@ -6,6 +7,7 @@ namespace GenericCovidObserver.Observer
     public class PersonController : IObserver<CovidCell>
     {
         private Person person;
+        private IDisposable unsubscriber;
 
         public PersonController(Person person)
         {
@@ -14,7 +16,12 @@ namespace GenericCovidObserver.Observer
 
         public void OnCompleted()
         {
-            throw new NotImplementedException();
+            Console.WriteLine();
+        }
+
+        public virtual void Subscribe(LaboratoryService laboratory)
+        {
+            unsubscriber = laboratory.Subscribe(this);
         }
 
         public void OnError(Exception error)
@@ -24,7 +31,8 @@ namespace GenericCovidObserver.Observer
 
         public void OnNext(CovidCell covidCell)
         {
-            throw new NotImplementedException();
+            person.IsHealthy = false;
+            Console.WriteLine($"{person.Name} {person.Surname} has been infected by a {covidCell.MolecularMass}u covid molecule");
         }
     }
 }
