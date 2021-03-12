@@ -7,7 +7,7 @@ ______ _____         ______       _____                 _
 \_| \_\____/\___\___/|___/ \___|  \_/\_\\__,_|\___||___/\__|
 ```
 
-# 0x2 Key Word: Covid
+# FINAL 0x2 Key Word: Covid
 
 Your task will be to create a program associated with **key word**.
 Your project can be a game, an algorithm, a web app, design pattern or whatever.
